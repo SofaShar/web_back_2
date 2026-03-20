@@ -1,0 +1,38 @@
+GET /web_back_2/index.php HTTP/1.1
+Host: 158.160.228.191
+
+3) определить размер файла file.tar.gz, не скачивая его;
+HEAD /web_back_2/file.tar.gz HTTP/1.1
+Host: 158.160.203.16
+
+4) определить медиатип ресурса /image.png;
+HEAD /web_back_2/image.png HTTP/1.1
+Host: 158.160.203.16
+
+5) отправить комментарий на сервер по адресу /index.php;?
+POST /web_back_2/index.php HTTP/1.1
+Host: 158.160.229.170
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 12
+
+comment=Test
+
+telnet 158.160.229.170 80
+Trying...
+Connected to 158.160.229.170.
+Escape character is '^]'.
+POST /web_back_2/index.php HTTP/1.1
+Host: 158.160.229.170
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 19
+
+comment=Test comment
+
+6) получить первые 100 байт файла /file.tar.gz;
+GET /web_back_2/file.tar.gz HTTP/1.1
+Host: 158.160.228.191
+Range: bytes=0-99
+
+7) определить кодировку ресурса /index.php.
+HEAD /web_back_2/index.php HTTP/1.1
+Host: 158.160.228.191
